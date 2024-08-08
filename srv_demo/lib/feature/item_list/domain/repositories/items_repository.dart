@@ -4,4 +4,5 @@ import 'package:srv_demo/feature/item_list/data/models/item_model.dart';
 
 abstract class ItemRepository{
   Future<Either<Failure,List<ItemModel>>> load(void request);
+  Future<Either<Failure,void>> upload(List<ItemModel> request);
 }

@@ -23,4 +23,14 @@ class ItemRepositoryImpl implements ItemRepository {
       return const Left(CacheFailure(message: "Ошибка авторизации"));
     }
   }
+  
+  @override
+  Future<Either<Failure, void>> upload(List<ItemModel> request) async {
+    try {
+      final localItem = await localDataSource.upload(request);
+      return Right(localItem);
+    } on CacheException {
+      return const Left(CacheFailure(message: "Ошибка авторизации"));
+    }
+  }
 }

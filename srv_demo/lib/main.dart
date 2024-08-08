@@ -12,7 +12,6 @@ import 'package:srv_demo/feature/profile/presentation/page/profile_page.dart';
 // import 'package:srv_demo/injection_container.dart';
 
 import 'package:srv_demo/injection_container.dart' as di;
-import 'package:srv_demo/injection_container.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Мой сад',
+      title: 'Онлайн-магазин',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
