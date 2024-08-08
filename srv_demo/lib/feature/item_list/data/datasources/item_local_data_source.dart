@@ -26,7 +26,7 @@ class ItemLocalDataSourceImpl implements ItemLocalDataSource {
   @override
   Future<void> upload(List<ItemModel> request) async {
     try {
-      if (itemBox.isEmpty) {
+      if (request.isEmpty) {
         itemBox.clear();
         return;
       }

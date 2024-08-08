@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:srv_demo/feature/item_list/domain/entities/item_entity.dart';
-import 'package:srv_demo/feature/item_list/domain/usecases/load_items.dart';
+import 'package:srv_demo/feature/item_list/domain/usecases/load_favourite_items.dart';
 import 'package:srv_demo/feature/item_list/presentation/provider/item_list_state.dart';
 import 'package:srv_demo/injection_container.dart';
 
@@ -11,7 +11,7 @@ final favouriteItemListControllerProvider =
 });
 
 class FavouriteItemListController extends StateNotifier<ItemListState> {
-  final LoadItems loadItems;
+  final LoadFavouriteItems loadItems;
 
   FavouriteItemListController(super.state, {required this.loadItems});
 
