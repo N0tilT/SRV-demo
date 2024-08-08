@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:srv_demo/feature/auth/data/models/security_request_model.dart';
-import 'package:srv_demo/feature/favourite_list/domain/entities/account_entity.dart';
-import 'package:srv_demo/feature/favourite_list/domain/usecases/auth.dart';
-import 'package:srv_demo/feature/favourite_list/provider/auth_state.dart';
+import 'package:srv_demo/feature/auth/domain/entities/account_entity.dart';
+import 'package:srv_demo/feature/auth/domain/usecases/auth.dart';
+import 'package:srv_demo/feature/auth/presentation/provider/auth_state.dart';
 import 'package:srv_demo/injection_container.dart';
 
 final userControllerProvider = StateNotifierProvider<UserController,AuthState>((ref) {

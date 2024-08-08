@@ -4,7 +4,7 @@ import 'package:srv_demo/core/constants/routes.dart';
 import 'package:srv_demo/core/utils/email_validator.dart';
 import 'package:srv_demo/feature/auth/data/models/security_request_model.dart';
 import 'package:srv_demo/feature/auth/presentation/provider/user_controller.dart';
-import 'package:srv_demo/feature/favourite_list/widgets/auth_app_bar_widget.dart';
+import 'package:srv_demo/feature/item_list/presentation/widgets/item_list_app_bar_widget.dart';
 import 'package:srv_demo/resources/colors.dart';
 
 class LoginAuthPage extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:srv_demo/feature/favourite_list/domain/entities/account_entity.dart';
+import 'package:srv_demo/feature/auth/domain/entities/account_entity.dart';
 
 part 'auth_state.freezed.dart';
 

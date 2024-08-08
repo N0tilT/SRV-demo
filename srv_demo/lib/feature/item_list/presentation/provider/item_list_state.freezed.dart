@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'auth_state.dart';
+part of 'item_list_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,25 +15,25 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AuthState {
+mixin _$ItemListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(AccountEntity account) success,
+    required TResult Function(List<ItemEntity> account) success,
     required TResult Function(String? errorMessage) fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(AccountEntity account)? success,
+    TResult? Function(List<ItemEntity> account)? success,
     TResult? Function(String? errorMessage)? fail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(AccountEntity account)? success,
+    TResult Function(List<ItemEntity> account)? success,
     TResult Function(String? errorMessage)? fail,
     required TResult orElse(),
   }) =>
@@ -63,15 +63,16 @@ mixin _$AuthState {
 }
 
 /// @nodoc
-abstract class $AuthStateCopyWith<$Res> {
-  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
-      _$AuthStateCopyWithImpl<$Res, AuthState>;
+abstract class $ItemListStateCopyWith<$Res> {
+  factory $ItemListStateCopyWith(
+          ItemListState value, $Res Function(ItemListState) then) =
+      _$ItemListStateCopyWithImpl<$Res, ItemListState>;
 }
 
 /// @nodoc
-class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
-    implements $AuthStateCopyWith<$Res> {
-  _$AuthStateCopyWithImpl(this._value, this._then);
+class _$ItemListStateCopyWithImpl<$Res, $Val extends ItemListState>
+    implements $ItemListStateCopyWith<$Res> {
+  _$ItemListStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -88,7 +89,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$ItemListStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -102,7 +103,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'AuthState.init()';
+    return 'ItemListState.init()';
   }
 
   @override
@@ -118,7 +119,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(AccountEntity account) success,
+    required TResult Function(List<ItemEntity> account) success,
     required TResult Function(String? errorMessage) fail,
   }) {
     return init();
@@ -128,7 +129,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(AccountEntity account)? success,
+    TResult? Function(List<ItemEntity> account)? success,
     TResult? Function(String? errorMessage)? fail,
   }) {
     return init?.call();
@@ -138,7 +139,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(AccountEntity account)? success,
+    TResult Function(List<ItemEntity> account)? success,
     TResult Function(String? errorMessage)? fail,
     required TResult orElse(),
   }) {
@@ -183,7 +184,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements AuthState {
+abstract class _Initial implements ItemListState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -193,14 +194,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AccountEntity account});
-
-  $AccountEntityCopyWith<$Res> get account;
+  $Res call({List<ItemEntity> account});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$ItemListStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -213,32 +212,29 @@ class __$$SuccessImplCopyWithImpl<$Res>
   }) {
     return _then(_$SuccessImpl(
       null == account
-          ? _value.account
+          ? _value._account
           : account // ignore: cast_nullable_to_non_nullable
-              as AccountEntity,
+              as List<ItemEntity>,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AccountEntityCopyWith<$Res> get account {
-    return $AccountEntityCopyWith<$Res>(_value.account, (value) {
-      return _then(_value.copyWith(account: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(this.account);
+  const _$SuccessImpl(final List<ItemEntity> account) : _account = account;
 
+  final List<ItemEntity> _account;
   @override
-  final AccountEntity account;
+  List<ItemEntity> get account {
+    if (_account is EqualUnmodifiableListView) return _account;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_account);
+  }
 
   @override
   String toString() {
-    return 'AuthState.success(account: $account)';
+    return 'ItemListState.success(account: $account)';
   }
 
   @override
@@ -246,11 +242,12 @@ class _$SuccessImpl implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.account, account) || other.account == account));
+            const DeepCollectionEquality().equals(other._account, _account));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, account);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_account));
 
   @JsonKey(ignore: true)
   @override
@@ -262,7 +259,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(AccountEntity account) success,
+    required TResult Function(List<ItemEntity> account) success,
     required TResult Function(String? errorMessage) fail,
   }) {
     return success(account);
@@ -272,7 +269,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(AccountEntity account)? success,
+    TResult? Function(List<ItemEntity> account)? success,
     TResult? Function(String? errorMessage)? fail,
   }) {
     return success?.call(account);
@@ -282,7 +279,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(AccountEntity account)? success,
+    TResult Function(List<ItemEntity> account)? success,
     TResult Function(String? errorMessage)? fail,
     required TResult orElse(),
   }) {
@@ -327,10 +324,10 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements AuthState {
-  const factory _Success(final AccountEntity account) = _$SuccessImpl;
+abstract class _Success implements ItemListState {
+  const factory _Success(final List<ItemEntity> account) = _$SuccessImpl;
 
-  AccountEntity get account;
+  List<ItemEntity> get account;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -347,7 +344,7 @@ abstract class _$$FailImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$FailImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$FailImpl>
+    extends _$ItemListStateCopyWithImpl<$Res, _$FailImpl>
     implements _$$FailImplCopyWith<$Res> {
   __$$FailImplCopyWithImpl(_$FailImpl _value, $Res Function(_$FailImpl) _then)
       : super(_value, _then);
@@ -376,7 +373,7 @@ class _$FailImpl implements _Fail {
 
   @override
   String toString() {
-    return 'AuthState.fail(errorMessage: $errorMessage)';
+    return 'ItemListState.fail(errorMessage: $errorMessage)';
   }
 
   @override
@@ -401,7 +398,7 @@ class _$FailImpl implements _Fail {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function(AccountEntity account) success,
+    required TResult Function(List<ItemEntity> account) success,
     required TResult Function(String? errorMessage) fail,
   }) {
     return fail(errorMessage);
@@ -411,7 +408,7 @@ class _$FailImpl implements _Fail {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function(AccountEntity account)? success,
+    TResult? Function(List<ItemEntity> account)? success,
     TResult? Function(String? errorMessage)? fail,
   }) {
     return fail?.call(errorMessage);
@@ -421,7 +418,7 @@ class _$FailImpl implements _Fail {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function(AccountEntity account)? success,
+    TResult Function(List<ItemEntity> account)? success,
     TResult Function(String? errorMessage)? fail,
     required TResult orElse(),
   }) {
@@ -466,7 +463,7 @@ class _$FailImpl implements _Fail {
   }
 }
 
-abstract class _Fail implements AuthState {
+abstract class _Fail implements ItemListState {
   const factory _Fail(final String? errorMessage) = _$FailImpl;
 
   String? get errorMessage;
