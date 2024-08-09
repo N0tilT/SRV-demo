@@ -1,9 +1,16 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:srv_demo/feature/item_list/presentation/provider/item_list_controller.dart';
+import 'package:go_router/go_router.dart';
+import 'package:srv_demo/core/constants/routes.dart';
+import 'package:srv_demo/feature/item_list/presentation/page/details_page.dart';
+import 'package:srv_demo/feature/item_list/presentation/page/item_list_page.dart';
+import 'package:srv_demo/feature/item_list/presentation/provider/favourite_item_list_controller.dart';
+import 'package:srv_demo/feature/item_list/presentation/provider/selected_item_controller.dart';
+import 'package:srv_demo/feature/item_list/presentation/widgets/favourite_item_list_app_bar_widget.dart';
+import 'package:srv_demo/feature/item_list/presentation/widgets/item_card.dart';
 
 class FavouriteListPage extends ConsumerStatefulWidget {
-  const FavouriteListPage({ Key? key }) : super(key: key);
+  const FavouriteListPage({super.key});
 
   @override
   _FavouriteListPageState createState() => _FavouriteListPageState();
@@ -12,15 +19,37 @@ class FavouriteListPage extends ConsumerStatefulWidget {
 class _FavouriteListPageState extends ConsumerState<FavouriteListPage> {
   @override
   Widget build(BuildContext context) {
-    
-    ref.watch(itemListControllerProvider.notifier).load();
-
-    return ref.watch(itemListControllerProvider).when(
-          init: () => Container(),
-          success: (items) => Column(
-            children: items.map((e) => Text(e.title)).toList(),
+    ref.watch(favouriteItemListControllerProvider.notifier).load();
+    return Scaffold(
+      appBar: const FavouriteItemListAppBarWidget(),
+      body: ref.watch(favouriteItemListControllerProvider).when(
+            init: () => Container(),
+            success: (items) => Expanded(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GridView.builder(
+                    itemCount: items.length,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 5,
+                      crossAxisSpacing: 5,
+                      childAspectRatio: 0.75,
+                    ),
+                    itemBuilder: (context, index) => ItemCard(
+                      item: items[index],
+                      press: () {
+                        ref.watch(selectedItemProvider.notifier).state =
+                            items[index];
+                        context.push(detailsRoute);
+                      },
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            fail: (errorMessage) => Text(errorMessage ?? "Товар"),
           ),
-          fail: (errorMessage) => Text(errorMessage ?? "Товар"),
-        );
+    );
   }
 }

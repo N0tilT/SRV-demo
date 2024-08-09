@@ -11,6 +11,7 @@ class ItemEntity with _$ItemEntity {
     required String description,
     required String image,
     required bool isFavourite,
+    required double price,
   }) = _ItemEntity;
 
   factory ItemEntity.fromModel(ItemModel model) => ItemEntity(
@@ -19,5 +20,6 @@ class ItemEntity with _$ItemEntity {
         description: model.description,
         image: model.image,
         isFavourite: model.isFavourite,
+        price: model.price,
       );
 }

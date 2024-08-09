@@ -21,6 +21,7 @@ mixin _$ItemEntity {
   String get description => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   bool get isFavourite => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ItemEntityCopyWith<ItemEntity> get copyWith =>
@@ -38,7 +39,8 @@ abstract class $ItemEntityCopyWith<$Res> {
       String title,
       String description,
       String image,
-      bool isFavourite});
+      bool isFavourite,
+      double price});
 }
 
 /// @nodoc
@@ -59,6 +61,7 @@ class _$ItemEntityCopyWithImpl<$Res, $Val extends ItemEntity>
     Object? description = null,
     Object? image = null,
     Object? isFavourite = null,
+    Object? price = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -81,6 +84,10 @@ class _$ItemEntityCopyWithImpl<$Res, $Val extends ItemEntity>
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
               as bool,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -98,7 +105,8 @@ abstract class _$$ItemEntityImplCopyWith<$Res>
       String title,
       String description,
       String image,
-      bool isFavourite});
+      bool isFavourite,
+      double price});
 }
 
 /// @nodoc
@@ -117,6 +125,7 @@ class __$$ItemEntityImplCopyWithImpl<$Res>
     Object? description = null,
     Object? image = null,
     Object? isFavourite = null,
+    Object? price = null,
   }) {
     return _then(_$ItemEntityImpl(
       id: null == id
@@ -139,6 +148,10 @@ class __$$ItemEntityImplCopyWithImpl<$Res>
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
               as bool,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -151,7 +164,8 @@ class _$ItemEntityImpl implements _ItemEntity {
       required this.title,
       required this.description,
       required this.image,
-      required this.isFavourite});
+      required this.isFavourite,
+      required this.price});
 
   @override
   final int id;
@@ -163,10 +177,12 @@ class _$ItemEntityImpl implements _ItemEntity {
   final String image;
   @override
   final bool isFavourite;
+  @override
+  final double price;
 
   @override
   String toString() {
-    return 'ItemEntity(id: $id, title: $title, description: $description, image: $image, isFavourite: $isFavourite)';
+    return 'ItemEntity(id: $id, title: $title, description: $description, image: $image, isFavourite: $isFavourite, price: $price)';
   }
 
   @override
@@ -180,12 +196,13 @@ class _$ItemEntityImpl implements _ItemEntity {
                 other.description == description) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.isFavourite, isFavourite) ||
-                other.isFavourite == isFavourite));
+                other.isFavourite == isFavourite) &&
+            (identical(other.price, price) || other.price == price));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, description, image, isFavourite);
+  int get hashCode => Object.hash(
+      runtimeType, id, title, description, image, isFavourite, price);
 
   @JsonKey(ignore: true)
   @override
@@ -200,7 +217,8 @@ abstract class _ItemEntity implements ItemEntity {
       required final String title,
       required final String description,
       required final String image,
-      required final bool isFavourite}) = _$ItemEntityImpl;
+      required final bool isFavourite,
+      required final double price}) = _$ItemEntityImpl;
 
   @override
   int get id;
@@ -212,6 +230,8 @@ abstract class _ItemEntity implements ItemEntity {
   String get image;
   @override
   bool get isFavourite;
+  @override
+  double get price;
   @override
   @JsonKey(ignore: true)
   _$$ItemEntityImplCopyWith<_$ItemEntityImpl> get copyWith =>

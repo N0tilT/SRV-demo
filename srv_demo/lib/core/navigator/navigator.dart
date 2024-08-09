@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:srv_demo/feature/auth/presentation/page/profile_page.dart';
 import 'package:srv_demo/feature/item_list/presentation/page/favourite_list_page.dart';
 import 'package:srv_demo/feature/item_list/presentation/page/item_list_page.dart';
-import 'package:srv_demo/feature/auth/presentation/page/profile_page.dart';
 
 class MainNavigatorWidget extends StatefulWidget {
   const MainNavigatorWidget({super.key});
@@ -35,15 +35,15 @@ class _MainNavigatorWidgetState extends State<MainNavigatorWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.all_inbox_rounded),
+            icon: Icon(Icons.shop_2),
             label: "Товары",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month),
+            icon: Icon(Icons.favorite),
             label: "Любимое",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.map),
+            icon: Icon(Icons.person),
             label: "Профиль",
           ),
         ],

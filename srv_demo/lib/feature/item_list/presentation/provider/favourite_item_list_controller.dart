@@ -16,6 +16,7 @@ class FavouriteItemListController extends StateNotifier<ItemListState> {
   FavouriteItemListController(super.state, {required this.loadItems});
 
   Future<Either<String, List<ItemEntity>>> load() async {
+    // ignore: void_checks
     final result = await loadItems.call(() {});
     return result.fold(
       (l) {

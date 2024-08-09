@@ -34,4 +34,14 @@ class AuthRepositoryImpl implements AuthRepository {
       return const Left(CacheFailure(message: "Ошибка авторизации"));
     }
   }
+  
+  @override
+  Future<Either<Failure, void>> logout(void request) async {
+    try {
+      final localAuth = await localDataSource.logout(request);
+      return Right(localAuth);
+    } on CacheException {
+      return const Left(CacheFailure(message: "Ошибка авторизации"));
+    }
+  }
 }

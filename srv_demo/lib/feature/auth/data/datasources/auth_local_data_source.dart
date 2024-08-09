@@ -8,6 +8,7 @@ import 'package:srv_demo/feature/auth/data/models/security_request_model.dart';
 abstract class AuthLocalDataSource {
   Future<AccountModel> auth(SecurityRequestModel model);
   Future<AccountModel> get(void request);
+  Future<void> logout(void request);
 }
 
 class AuthLocalDataSourceImpl implements AuthLocalDataSource {
@@ -55,6 +56,21 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
         throw CacheException();
       }
     } catch (e) {
+      throw CacheException();
+    }
+  }
+  
+  @override
+  Future<void> logout(void request) async {
+    try{
+      final result = prefs.getString('account');
+      if (result != null) {
+        prefs.clear();
+      } else {
+        throw CacheException();
+      }
+    }
+    catch(e){
       throw CacheException();
     }
   }

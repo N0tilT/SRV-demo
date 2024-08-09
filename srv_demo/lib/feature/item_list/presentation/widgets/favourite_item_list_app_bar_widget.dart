@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ItemListAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  const ItemListAppBarWidget({
+class FavouriteItemListAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+  const FavouriteItemListAppBarWidget({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class ItemListAppBarWidget extends StatelessWidget implements PreferredSizeWidge
       titleSpacing: 0,
       centerTitle: true,
       title: const Text(
-        'Список товаров',
+        'Избранное',
         style: TextStyle(color: Colors.white, fontSize: 25),
       ),
     );

@@ -12,7 +12,7 @@ class Auth extends Usecase<AccountEntity, SecurityRequestModel> {
 
   @override
   Future<Either<Failure, AccountEntity>> call(
-      SecurityRequestModel request) async {
+      SecurityRequestModel request,) async {
     final result = await authRepository.auth(request);
     return result.fold(
       (l) => Left(l),

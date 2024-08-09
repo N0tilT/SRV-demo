@@ -5,28 +5,24 @@ import 'package:srv_demo/feature/item_list/data/models/item_model.dart';
 import 'package:srv_demo/feature/item_list/domain/entities/item_entity.dart';
 import 'package:srv_demo/feature/item_list/domain/repositories/items_repository.dart';
 
-class UpdateItemList extends Usecase<void, List<ItemEntity>> {
+class UpdateItem extends Usecase<void, ItemEntity> {
   final ItemRepository itemsRepository;
 
-  UpdateItemList({required this.itemsRepository});
+  UpdateItem({required this.itemsRepository});
 
   @override
   Future<Either<Failure, void>> call(
-    List<ItemEntity> request,
+    ItemEntity request,
   ) async {
-    final result = await itemsRepository.upload(
-      request
-          .map(
-            (e) => ItemModel(
-              id: e.id,
-              title: e.title,
-              description: e.description,
-              image: e.image,
-              isFavourite: e.isFavourite,
-              price: e.price,
-            ),
-          )
-          .toList(),
+    final result = await itemsRepository.updateItem(
+      ItemModel(
+        id: request.id,
+        title: request.title,
+        description: request.description,
+        image: request.image,
+        isFavourite: request.isFavourite,
+        price: request.price,
+      ),
     );
     return result.fold(
       (l) => Left(l),

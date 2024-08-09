@@ -8,11 +8,6 @@ class AuthAppBarWidget extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        icon: const Icon(Icons.chevron_left_sharp,
-        color: Colors.white,),
-        onPressed: () => {Navigator.of(context).pop()},
-      ),
       titleSpacing: 0,
       centerTitle: true,
       title: const Text(

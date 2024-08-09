@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:srv_demo/core/constants/colors.dart';
 import 'package:srv_demo/core/constants/routes.dart';
 import 'package:srv_demo/core/utils/email_validator.dart';
 import 'package:srv_demo/feature/auth/data/models/security_request_model.dart';
+import 'package:srv_demo/feature/auth/presentation/page/profile_page.dart';
 import 'package:srv_demo/feature/auth/presentation/provider/user_controller.dart';
-import 'package:srv_demo/feature/item_list/presentation/widgets/item_list_app_bar_widget.dart';
-import 'package:srv_demo/resources/colors.dart';
+import 'package:srv_demo/feature/auth/presentation/widgets/auth_app_bar_widget.dart';
 
 class LoginAuthPage extends StatefulWidget {
   const LoginAuthPage({super.key});
@@ -88,7 +90,8 @@ class _FormWidget extends StatelessWidget {
                     if (form.validate()) {
                       final email = emailTextController.text;
                       final password = passwordTextController.text;
-                      ref.read(userControllerProvider.notifier)
+                      ref
+                          .read(userControllerProvider.notifier)
                           .login(
                             request: SecurityRequestModel(
                               email: email,
@@ -106,8 +109,7 @@ class _FormWidget extends StatelessWidget {
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(snackBar);
                                 },
-                                (r) => Navigator.of(context)
-                                    .pushReplacementNamed(mainRoute),
+                                (r) => context.go(mainRoute),
                               ),
                             },
                           );

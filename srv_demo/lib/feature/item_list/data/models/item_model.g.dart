@@ -22,13 +22,14 @@ class ItemModelAdapter extends TypeAdapter<_$ItemModelImpl> {
       description: fields[2] as String,
       image: fields[3] as String,
       isFavourite: fields[4] as bool,
+      price: fields[5] as double,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$ItemModelImpl obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class ItemModelAdapter extends TypeAdapter<_$ItemModelImpl> {
       ..writeByte(3)
       ..write(obj.image)
       ..writeByte(4)
-      ..write(obj.isFavourite);
+      ..write(obj.isFavourite)
+      ..writeByte(5)
+      ..write(obj.price);
   }
 
   @override
@@ -63,6 +66,7 @@ _$ItemModelImpl _$$ItemModelImplFromJson(Map<String, dynamic> json) =>
       description: json['Description'] as String,
       image: json['Image'] as String,
       isFavourite: json['IsFavourite'] as bool,
+      price: (json['Price'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$ItemModelImplToJson(_$ItemModelImpl instance) =>
@@ -72,4 +76,5 @@ Map<String, dynamic> _$$ItemModelImplToJson(_$ItemModelImpl instance) =>
       'Description': instance.description,
       'Image': instance.image,
       'IsFavourite': instance.isFavourite,
+      'Price': instance.price,
     };

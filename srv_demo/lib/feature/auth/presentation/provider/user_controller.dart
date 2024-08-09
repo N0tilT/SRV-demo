@@ -4,6 +4,7 @@ import 'package:srv_demo/feature/auth/data/models/security_request_model.dart';
 import 'package:srv_demo/feature/auth/domain/entities/account_entity.dart';
 import 'package:srv_demo/feature/auth/domain/usecases/auth.dart';
 import 'package:srv_demo/feature/auth/domain/usecases/get_profile.dart';
+import 'package:srv_demo/feature/auth/domain/usecases/logout.dart';
 import 'package:srv_demo/feature/auth/presentation/provider/auth_state.dart';
 import 'package:srv_demo/injection_container.dart';
 
@@ -15,8 +16,14 @@ final userControllerProvider =
 class UserController extends StateNotifier<AuthState> {
   final Auth auth;
   final GetProfile get;
+  final Logout logoutCase;
 
-  UserController(super.state, {required this.auth, required this.get});
+  UserController(
+    super.state, {
+    required this.auth,
+    required this.get,
+    required this.logoutCase,
+  });
 
   Future<Either<String, AccountEntity>> login({
     required SecurityRequestModel request,
@@ -35,6 +42,7 @@ class UserController extends StateNotifier<AuthState> {
   }
 
   Future<Either<String, AccountEntity>> getProfile() async {
+    // ignore: void_checks
     final result = await get.call(() {});
     return result.fold(
       (l) {
@@ -43,6 +51,20 @@ class UserController extends StateNotifier<AuthState> {
       },
       (r) {
         state = AuthState.success(r);
+        return Right(r);
+      },
+    );
+  }
+
+  Future<Either<String, void>> logout() async {
+    // ignore: void_checks
+    final result = await logoutCase.call(() {});
+    return result.fold(
+      (l) {
+        state = AuthState.fail(l.message);
+        return Left(l.message);
+      },
+      (r) {
         return Right(r);
       },
     );

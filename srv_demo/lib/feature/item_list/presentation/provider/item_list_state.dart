@@ -8,5 +8,4 @@ class ItemListState with _$ItemListState {
   const factory ItemListState.init() = _Initial;
   const factory ItemListState.success(List<ItemEntity> account) = _Success;
   const factory ItemListState.fail(String? errorMessage) = _Fail;
-
 }

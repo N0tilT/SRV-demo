@@ -5,6 +5,7 @@ import 'package:srv_demo/feature/item_list/data/models/item_model.dart';
 abstract class ItemLocalDataSource {
   Future<List<ItemModel>> load(void request);
   Future<void> upload(List<ItemModel> request);
+  Future<void> update(ItemModel request);
 }
 
 class ItemLocalDataSourceImpl implements ItemLocalDataSource {
@@ -34,10 +35,10 @@ class ItemLocalDataSourceImpl implements ItemLocalDataSource {
       final modelList = {for (final item in request) item.id: item};
       final boxIds = itemBox.values.map((e) => e.id).toList();
 
-      final List<int> teachers = [];
-      teachers.addAll(boxIds);
-      teachers.addAll(modelList.keys);
-      final ids = {...teachers};
+      final List<int> items = [];
+      items.addAll(boxIds);
+      items.addAll(modelList.keys);
+      final ids = {...items};
       await itemBox.putAll(
         {
           for (final id
@@ -52,6 +53,15 @@ class ItemLocalDataSourceImpl implements ItemLocalDataSource {
         ))
           id,
       ]);
+    } catch (e) {
+      throw CacheException();
+    }
+  }
+
+  @override
+  Future<void> update(ItemModel request) async {
+    try {
+      await itemBox.put(request.id, request);
     } catch (e) {
       throw CacheException();
     }
