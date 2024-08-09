@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:srv_demo/core/constants/routes.dart';
-import 'package:srv_demo/feature/item_list/presentation/page/details_page.dart';
-import 'package:srv_demo/feature/item_list/presentation/page/item_list_page.dart';
 import 'package:srv_demo/feature/item_list/presentation/provider/favourite_item_list_controller.dart';
 import 'package:srv_demo/feature/item_list/presentation/provider/selected_item_controller.dart';
-import 'package:srv_demo/feature/item_list/presentation/widgets/favourite_item_list_app_bar_widget.dart';
 import 'package:srv_demo/feature/item_list/presentation/widgets/item_card.dart';
 
 class FavouriteListPage extends ConsumerStatefulWidget {
@@ -20,9 +17,7 @@ class _FavouriteListPageState extends ConsumerState<FavouriteListPage> {
   @override
   Widget build(BuildContext context) {
     ref.watch(favouriteItemListControllerProvider.notifier).load();
-    return Scaffold(
-      appBar: const FavouriteItemListAppBarWidget(),
-      body: ref.watch(favouriteItemListControllerProvider).when(
+    return ref.watch(favouriteItemListControllerProvider).when(
             init: () => Container(),
             success: (items) => Expanded(
               child: Center(
@@ -30,7 +25,8 @@ class _FavouriteListPageState extends ConsumerState<FavouriteListPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: GridView.builder(
                     itemCount: items.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 5,
                       crossAxisSpacing: 5,
@@ -49,7 +45,7 @@ class _FavouriteListPageState extends ConsumerState<FavouriteListPage> {
               ),
             ),
             fail: (errorMessage) => Text(errorMessage ?? "Товар"),
-          ),
+          
     );
   }
 }

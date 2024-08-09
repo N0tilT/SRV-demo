@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:srv_demo/core/constants/colors.dart';
 import 'package:srv_demo/core/constants/items.dart';
 import 'package:srv_demo/core/constants/routes.dart';
 import 'package:srv_demo/feature/item_list/presentation/provider/item_list_controller.dart';
 import 'package:srv_demo/feature/item_list/presentation/provider/selected_item_controller.dart';
 import 'package:srv_demo/feature/item_list/presentation/widgets/item_card.dart';
-import 'package:srv_demo/feature/item_list/presentation/widgets/item_list_app_bar_widget.dart';
 
 class ItemListPage extends ConsumerStatefulWidget {
   const ItemListPage({super.key});
@@ -20,7 +20,7 @@ class _ItemListPageState extends ConsumerState<ItemListPage> {
   Widget build(BuildContext context) {
     ref.watch(itemListControllerProvider.notifier).loadItems();
     return Scaffold(
-      appBar: const ItemListAppBarWidget(),
+      backgroundColor: mainBackgroundColor,
       body: ref.watch(itemListControllerProvider).when(
             init: () => Container(),
             success: (items) => Expanded(

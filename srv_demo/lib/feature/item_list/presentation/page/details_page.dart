@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:srv_demo/core/constants/colors.dart';
 import 'package:srv_demo/feature/item_list/domain/entities/item_entity.dart';
 import 'package:srv_demo/feature/item_list/presentation/provider/item_list_controller.dart';
 import 'package:srv_demo/feature/item_list/presentation/provider/selected_item_controller.dart';
@@ -18,6 +19,7 @@ class _DetailsScreenState extends ConsumerState<DetailsPage> {
     final item = ref.watch(selectedItemProvider);
     return Scaffold(
       appBar: const DetailsPageAppBarWidget(),
+      backgroundColor: mainBackgroundColor,
       body: Column(
         children: [
           ProductTitleWithImage(item: item),

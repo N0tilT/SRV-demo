@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:srv_demo/core/constants/colors.dart';
 import 'package:srv_demo/feature/auth/presentation/page/profile_page.dart';
 import 'package:srv_demo/feature/item_list/presentation/page/favourite_list_page.dart';
 import 'package:srv_demo/feature/item_list/presentation/page/item_list_page.dart';
@@ -28,7 +29,7 @@ class _MainNavigatorWidgetState extends State<MainNavigatorWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 114, 121, 150),
+      backgroundColor: mainBackgroundColor,
       body: Container(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

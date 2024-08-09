@@ -211,7 +211,7 @@ class _EmailFieldWidgetState extends State<_EmailFieldWidget> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
-      decoration: gardenInputStyle,
+      decoration: shopInputStyle,
       keyboardType: TextInputType.emailAddress,
       autofillHints: const [AutofillHints.email],
       validator: gardenEmailValidator,
@@ -219,13 +219,42 @@ class _EmailFieldWidgetState extends State<_EmailFieldWidget> {
   }
 }
 
-final gardenInputStyle = InputDecoration(
+final shopInputStyle = InputDecoration(
+  fillColor: Colors.white,
   constraints: const BoxConstraints(maxHeight: 40),
   enabledBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(5),
     borderSide: const BorderSide(
-      color: Color.fromARGB(255, 170, 141, 211),
+      color: Colors.black, // Цвет границы в обычном состоянии
     ),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(5),
+    borderSide: const BorderSide(
+      color: Colors.black, // Цвет границы при фокусе
+    ),
+  ),
+  errorBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(5),
+    borderSide: const BorderSide(
+      color: Colors.red, // Цвет границы при ошибке
+    ),
+  ),
+  focusedErrorBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(5),
+    borderSide: const BorderSide(
+      color: Colors.red, // Цвет границы при фокусе и ошибке
+    ),
+  ),
+  filled: true,
+  errorStyle: const TextStyle(
+    color: Colors.red, // Цвет текста ошибки
+  ),
+  hintStyle: const TextStyle(
+    color: Colors.black, // Цвет подсказки
+  ),
+  labelStyle: const TextStyle(
+    color: Colors.black, // Цвет текста внутри поля
   ),
 );
 
@@ -262,7 +291,7 @@ class _PasswordFieldWidgetState extends State<_PasswordFieldWidget> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
-      decoration: gardenInputStyle,
+      decoration: shopInputStyle,
       keyboardType: TextInputType.emailAddress,
       autofillHints: const [AutofillHints.password],
     );

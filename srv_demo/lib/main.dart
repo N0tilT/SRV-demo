@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:srv_demo/core/constants/colors.dart';
 import 'package:srv_demo/core/constants/routes.dart';
 import 'package:srv_demo/core/navigator/navigator.dart';
 import 'package:srv_demo/feature/auth/presentation/page/auth_page.dart';
@@ -10,10 +11,6 @@ import 'package:srv_demo/feature/auth/presentation/provider/user_controller.dart
 import 'package:srv_demo/feature/item_list/presentation/page/details_page.dart';
 import 'package:srv_demo/feature/item_list/presentation/page/favourite_list_page.dart';
 import 'package:srv_demo/feature/item_list/presentation/page/item_list_page.dart';
-// import 'package:srv_demo/core/constant_values/routes.dart';
-// import 'package:srv_demo/core/navigator/navigator.dart';
-// import 'package:srv_demo/feature/auth/presentation/pages/main_auth_widget.dart';
-// import 'package:srv_demo/injection_container.dart';
 
 import 'package:srv_demo/injection_container.dart' as di;
 
@@ -33,8 +30,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
-            backgroundColor: Color.fromARGB(255, 101, 59, 159),
+            backgroundColor: mainAppBarColor,
           ),
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+              selectedItemColor: selectedBottomNavigationBarItemColor),
           fontFamily: 'Inter',
         ),
         routerDelegate: _router.routerDelegate,

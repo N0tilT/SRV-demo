@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:srv_demo/core/constants/routes.dart';
 import 'package:srv_demo/feature/auth/presentation/provider/user_controller.dart';
-import 'package:srv_demo/feature/auth/presentation/widgets/profile_app_bar_widget.dart';
 
 class ProfilePage extends ConsumerStatefulWidget {
   const ProfilePage({super.key});
@@ -17,9 +16,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
   Widget build(BuildContext context) {
     ref.watch(userControllerProvider.notifier).getProfile();
 
-    return Scaffold(
-      appBar: const ProfileAppBarWidget(),
-      body: ref.watch(userControllerProvider).when(
+    return  ref.watch(userControllerProvider).when(
             init: () => Container(),
             success: (account) => Column(
               children: [
@@ -35,7 +32,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
               ],
             ),
             fail: (errorMessage) => Text(errorMessage!),
-          ),
+          
     );
   }
 }
