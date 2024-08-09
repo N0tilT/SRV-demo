@@ -55,12 +55,12 @@ class ItemCard extends StatelessWidget {
                 builder: (context, ref, child) => IconButton(
                   onPressed: () {
                     ref.watch(itemListControllerProvider.notifier).updateItem(
-                          item.copyWith(isFavourite: !item.isFavourite),
+                          item.copyWith(isFavorite: !item.isFavorite),
                         );
                   },
                   icon: Icon(
                     Icons.star,
-                    color: item.isFavourite ? Colors.yellow : Colors.grey,
+                    color: item.isFavorite ? Colors.yellow : Colors.grey,
                   ),
                 ),
               ),

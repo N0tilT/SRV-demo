@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:srv_demo/core/constants/colors.dart';
 import 'package:srv_demo/feature/auth/presentation/page/profile_page.dart';
-import 'package:srv_demo/feature/item_list/presentation/page/favourite_list_page.dart';
+import 'package:srv_demo/feature/item_list/presentation/page/favorite_list_page.dart';
 import 'package:srv_demo/feature/item_list/presentation/page/item_list_page.dart';
 
 class MainNavigatorWidget extends StatefulWidget {

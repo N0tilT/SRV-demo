@@ -34,7 +34,7 @@ mixin _$ItemModel {
   String get image => throw _privateConstructorUsedError;
   @JsonKey(name: 'IsFavourite')
   @HiveField(4)
-  bool get isFavourite => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
   @JsonKey(name: 'Price')
   @HiveField(5)
   double get price => throw _privateConstructorUsedError;
@@ -55,7 +55,7 @@ abstract class $ItemModelCopyWith<$Res> {
       @JsonKey(name: 'Title') @HiveField(1) String title,
       @JsonKey(name: 'Description') @HiveField(2) String description,
       @JsonKey(name: 'Image') @HiveField(3) String image,
-      @JsonKey(name: 'IsFavourite') @HiveField(4) bool isFavourite,
+      @JsonKey(name: 'IsFavourite') @HiveField(4) bool isFavorite,
       @JsonKey(name: 'Price') @HiveField(5) double price});
 }
 
@@ -76,7 +76,7 @@ class _$ItemModelCopyWithImpl<$Res, $Val extends ItemModel>
     Object? title = null,
     Object? description = null,
     Object? image = null,
-    Object? isFavourite = null,
+    Object? isFavorite = null,
     Object? price = null,
   }) {
     return _then(_value.copyWith(
@@ -96,9 +96,9 @@ class _$ItemModelCopyWithImpl<$Res, $Val extends ItemModel>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      isFavourite: null == isFavourite
-          ? _value.isFavourite
-          : isFavourite // ignore: cast_nullable_to_non_nullable
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
       price: null == price
           ? _value.price
@@ -121,7 +121,7 @@ abstract class _$$ItemModelImplCopyWith<$Res>
       @JsonKey(name: 'Title') @HiveField(1) String title,
       @JsonKey(name: 'Description') @HiveField(2) String description,
       @JsonKey(name: 'Image') @HiveField(3) String image,
-      @JsonKey(name: 'IsFavourite') @HiveField(4) bool isFavourite,
+      @JsonKey(name: 'IsFavourite') @HiveField(4) bool isFavorite,
       @JsonKey(name: 'Price') @HiveField(5) double price});
 }
 
@@ -140,7 +140,7 @@ class __$$ItemModelImplCopyWithImpl<$Res>
     Object? title = null,
     Object? description = null,
     Object? image = null,
-    Object? isFavourite = null,
+    Object? isFavorite = null,
     Object? price = null,
   }) {
     return _then(_$ItemModelImpl(
@@ -160,9 +160,9 @@ class __$$ItemModelImplCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      isFavourite: null == isFavourite
-          ? _value.isFavourite
-          : isFavourite // ignore: cast_nullable_to_non_nullable
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
       price: null == price
           ? _value.price
@@ -181,7 +181,7 @@ class _$ItemModelImpl extends _ItemModel {
       @JsonKey(name: 'Title') @HiveField(1) required this.title,
       @JsonKey(name: 'Description') @HiveField(2) required this.description,
       @JsonKey(name: 'Image') @HiveField(3) required this.image,
-      @JsonKey(name: 'IsFavourite') @HiveField(4) required this.isFavourite,
+      @JsonKey(name: 'IsFavourite') @HiveField(4) required this.isFavorite,
       @JsonKey(name: 'Price') @HiveField(5) required this.price})
       : super._();
 
@@ -207,7 +207,7 @@ class _$ItemModelImpl extends _ItemModel {
   @override
   @JsonKey(name: 'IsFavourite')
   @HiveField(4)
-  final bool isFavourite;
+  final bool isFavorite;
   @override
   @JsonKey(name: 'Price')
   @HiveField(5)
@@ -215,7 +215,7 @@ class _$ItemModelImpl extends _ItemModel {
 
   @override
   String toString() {
-    return 'ItemModel(id: $id, title: $title, description: $description, image: $image, isFavourite: $isFavourite, price: $price)';
+    return 'ItemModel(id: $id, title: $title, description: $description, image: $image, isFavorite: $isFavorite, price: $price)';
   }
 
   @override
@@ -228,15 +228,15 @@ class _$ItemModelImpl extends _ItemModel {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.image, image) || other.image == image) &&
-            (identical(other.isFavourite, isFavourite) ||
-                other.isFavourite == isFavourite) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite) &&
             (identical(other.price, price) || other.price == price));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, title, description, image, isFavourite, price);
+      runtimeType, id, title, description, image, isFavorite, price);
 
   @JsonKey(ignore: true)
   @override
@@ -262,7 +262,7 @@ abstract class _ItemModel extends ItemModel {
           @JsonKey(name: 'Image') @HiveField(3) required final String image,
           @JsonKey(name: 'IsFavourite')
           @HiveField(4)
-          required final bool isFavourite,
+          required final bool isFavorite,
           @JsonKey(name: 'Price') @HiveField(5) required final double price}) =
       _$ItemModelImpl;
   _ItemModel._() : super._();
@@ -289,7 +289,7 @@ abstract class _ItemModel extends ItemModel {
   @override
   @JsonKey(name: 'IsFavourite')
   @HiveField(4)
-  bool get isFavourite;
+  bool get isFavorite;
   @override
   @JsonKey(name: 'Price')
   @HiveField(5)

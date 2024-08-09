@@ -14,7 +14,7 @@ class ItemModel extends HiveObject with _$ItemModel {
     @JsonKey(name: 'Title') @HiveField(1) required String title,
     @JsonKey(name: 'Description') @HiveField(2) required String description,
     @JsonKey(name: 'Image') @HiveField(3) required String image,
-    @JsonKey(name: 'IsFavourite') @HiveField(4) required bool isFavourite,
+    @JsonKey(name: 'IsFavourite') @HiveField(4) required bool isFavorite,
     @JsonKey(name: 'Price') @HiveField(5) required double price,
   }) = _ItemModel;
 

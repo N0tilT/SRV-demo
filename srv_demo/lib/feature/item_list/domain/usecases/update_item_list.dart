@@ -22,7 +22,7 @@ class UpdateItemList extends Usecase<void, List<ItemEntity>> {
               title: e.title,
               description: e.description,
               image: e.image,
-              isFavourite: e.isFavourite,
+              isFavorite: e.isFavorite,
               price: e.price,
             ),
           )

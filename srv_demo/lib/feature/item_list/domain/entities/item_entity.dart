@@ -10,7 +10,7 @@ class ItemEntity with _$ItemEntity {
     required String title,
     required String description,
     required String image,
-    required bool isFavourite,
+    required bool isFavorite,
     required double price,
   }) = _ItemEntity;
 
@@ -19,7 +19,7 @@ class ItemEntity with _$ItemEntity {
         title: model.title,
         description: model.description,
         image: model.image,
-        isFavourite: model.isFavourite,
+        isFavorite: model.isFavorite,
         price: model.price,
       );
 }

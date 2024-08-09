@@ -9,7 +9,7 @@ import 'package:srv_demo/feature/auth/presentation/page/auth_page.dart';
 import 'package:srv_demo/feature/auth/presentation/page/profile_page.dart';
 import 'package:srv_demo/feature/auth/presentation/provider/user_controller.dart';
 import 'package:srv_demo/feature/item_list/presentation/page/details_page.dart';
-import 'package:srv_demo/feature/item_list/presentation/page/favourite_list_page.dart';
+import 'package:srv_demo/feature/item_list/presentation/page/favorite_list_page.dart';
 import 'package:srv_demo/feature/item_list/presentation/page/item_list_page.dart';
 
 import 'package:srv_demo/injection_container.dart' as di;

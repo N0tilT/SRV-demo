@@ -4,10 +4,10 @@ import 'package:srv_demo/core/data/usecases/usecase.dart';
 import 'package:srv_demo/feature/item_list/domain/entities/item_entity.dart';
 import 'package:srv_demo/feature/item_list/domain/repositories/items_repository.dart';
 
-class LoadFavouriteItems extends Usecase<List<ItemEntity>, void> {
+class LoadFavoriteItems extends Usecase<List<ItemEntity>, void> {
   final ItemRepository itemsRepository;
 
-  LoadFavouriteItems({required this.itemsRepository});
+  LoadFavoriteItems({required this.itemsRepository});
 
   @override
   Future<Either<Failure, List<ItemEntity>>> call(
@@ -19,7 +19,7 @@ class LoadFavouriteItems extends Usecase<List<ItemEntity>, void> {
       (r) => Right(
         r
             .where(
-              (e) => e.isFavourite,
+              (e) => e.isFavorite,
             )
             .map((e) => ItemEntity.fromModel(e))
             .toList(),

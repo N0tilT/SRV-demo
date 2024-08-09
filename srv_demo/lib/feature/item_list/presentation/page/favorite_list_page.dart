@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:srv_demo/core/constants/routes.dart';
-import 'package:srv_demo/feature/item_list/presentation/provider/favourite_item_list_controller.dart';
+import 'package:srv_demo/feature/item_list/presentation/provider/favorite_item_list_controller.dart';
 import 'package:srv_demo/feature/item_list/presentation/provider/selected_item_controller.dart';
 import 'package:srv_demo/feature/item_list/presentation/widgets/item_card.dart';
 
@@ -16,8 +16,8 @@ class FavouriteListPage extends ConsumerStatefulWidget {
 class _FavouriteListPageState extends ConsumerState<FavouriteListPage> {
   @override
   Widget build(BuildContext context) {
-    ref.watch(favouriteItemListControllerProvider.notifier).load();
-    return ref.watch(favouriteItemListControllerProvider).when(
+    ref.watch(favoriteItemListControllerProvider.notifier).load();
+    return ref.watch(favoriteItemListControllerProvider).when(
             init: () => Container(),
             success: (items) => Expanded(
               child: Center(

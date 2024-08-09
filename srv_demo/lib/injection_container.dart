@@ -14,11 +14,11 @@ import 'package:srv_demo/feature/item_list/data/datasources/item_local_data_sour
 import 'package:srv_demo/feature/item_list/data/models/item_model.dart';
 import 'package:srv_demo/feature/item_list/data/repositories/item_repository_impl.dart';
 import 'package:srv_demo/feature/item_list/domain/repositories/items_repository.dart';
-import 'package:srv_demo/feature/item_list/domain/usecases/load_favourite_items.dart';
+import 'package:srv_demo/feature/item_list/domain/usecases/load_favorite_items.dart';
 import 'package:srv_demo/feature/item_list/domain/usecases/load_items.dart';
 import 'package:srv_demo/feature/item_list/domain/usecases/update_item.dart';
 import 'package:srv_demo/feature/item_list/domain/usecases/update_item_list.dart';
-import 'package:srv_demo/feature/item_list/presentation/provider/favourite_item_list_controller.dart';
+import 'package:srv_demo/feature/item_list/presentation/provider/favorite_item_list_controller.dart';
 import 'package:srv_demo/feature/item_list/presentation/provider/item_list_controller.dart';
 import 'package:srv_demo/feature/item_list/presentation/provider/item_list_state.dart';
 
@@ -78,7 +78,7 @@ Future<void> init() async {
     ),
   );
   sl.registerFactory(
-    () => FavouriteItemListController(
+    () => FavoriteItemListController(
       const ItemListState.init(),
       loadItems: sl(),
     ),
@@ -90,7 +90,7 @@ Future<void> init() async {
     ),
   );
   sl.registerLazySingleton(
-    () => LoadFavouriteItems(
+    () => LoadFavoriteItems(
       itemsRepository: sl(),
     ),
   );

@@ -97,18 +97,18 @@ class ProductTitleWithImage extends StatelessWidget {
                         onPressed: () {
                           ref.watch(selectedItemProvider.notifier).state =
                               item.copyWith(
-                            isFavourite: !item.isFavourite,
+                            isFavorite: !item.isFavorite,
                           );
                           ref.watch(itemListControllerProvider.notifier).updateItem(
                                 item.copyWith(
-                                  isFavourite: !item.isFavourite,
+                                  isFavorite: !item.isFavorite,
                                 ),
                               );
                         },
                         icon: Icon(
                           size: 40,
                           Icons.star,
-                          color: item.isFavourite ? Colors.yellow : Colors.grey,
+                          color: item.isFavorite ? Colors.yellow : Colors.grey,
                         ),
                       ),
                     ),

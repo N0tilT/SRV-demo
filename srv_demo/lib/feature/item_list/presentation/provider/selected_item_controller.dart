@@ -7,6 +7,6 @@ final selectedItemProvider = StateProvider<ItemEntity>((ref) {
       title: "title",
       description: "description",
       image: "image",
-      isFavourite: false,
+      isFavorite: false,
       price: 0.0,);
 });

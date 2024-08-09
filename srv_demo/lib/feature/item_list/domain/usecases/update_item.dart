@@ -20,7 +20,7 @@ class UpdateItem extends Usecase<void, ItemEntity> {
         title: request.title,
         description: request.description,
         image: request.image,
-        isFavourite: request.isFavourite,
+        isFavorite: request.isFavorite,
         price: request.price,
       ),
     );

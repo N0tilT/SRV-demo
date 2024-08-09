@@ -21,7 +21,7 @@ class ItemModelAdapter extends TypeAdapter<_$ItemModelImpl> {
       title: fields[1] as String,
       description: fields[2] as String,
       image: fields[3] as String,
-      isFavourite: fields[4] as bool,
+      isFavorite: fields[4] as bool,
       price: fields[5] as double,
     );
   }
@@ -39,7 +39,7 @@ class ItemModelAdapter extends TypeAdapter<_$ItemModelImpl> {
       ..writeByte(3)
       ..write(obj.image)
       ..writeByte(4)
-      ..write(obj.isFavourite)
+      ..write(obj.isFavorite)
       ..writeByte(5)
       ..write(obj.price);
   }
@@ -65,7 +65,7 @@ _$ItemModelImpl _$$ItemModelImplFromJson(Map<String, dynamic> json) =>
       title: json['Title'] as String,
       description: json['Description'] as String,
       image: json['Image'] as String,
-      isFavourite: json['IsFavourite'] as bool,
+      isFavorite: json['IsFavourite'] as bool,
       price: (json['Price'] as num).toDouble(),
     );
 
@@ -75,6 +75,6 @@ Map<String, dynamic> _$$ItemModelImplToJson(_$ItemModelImpl instance) =>
       'Title': instance.title,
       'Description': instance.description,
       'Image': instance.image,
-      'IsFavourite': instance.isFavourite,
+      'IsFavourite': instance.isFavorite,
       'Price': instance.price,
     };

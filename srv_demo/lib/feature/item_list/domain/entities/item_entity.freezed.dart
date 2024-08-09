@@ -20,7 +20,7 @@ mixin _$ItemEntity {
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
-  bool get isFavourite => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -39,7 +39,7 @@ abstract class $ItemEntityCopyWith<$Res> {
       String title,
       String description,
       String image,
-      bool isFavourite,
+      bool isFavorite,
       double price});
 }
 
@@ -60,7 +60,7 @@ class _$ItemEntityCopyWithImpl<$Res, $Val extends ItemEntity>
     Object? title = null,
     Object? description = null,
     Object? image = null,
-    Object? isFavourite = null,
+    Object? isFavorite = null,
     Object? price = null,
   }) {
     return _then(_value.copyWith(
@@ -80,9 +80,9 @@ class _$ItemEntityCopyWithImpl<$Res, $Val extends ItemEntity>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      isFavourite: null == isFavourite
-          ? _value.isFavourite
-          : isFavourite // ignore: cast_nullable_to_non_nullable
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
       price: null == price
           ? _value.price
@@ -105,7 +105,7 @@ abstract class _$$ItemEntityImplCopyWith<$Res>
       String title,
       String description,
       String image,
-      bool isFavourite,
+      bool isFavorite,
       double price});
 }
 
@@ -124,7 +124,7 @@ class __$$ItemEntityImplCopyWithImpl<$Res>
     Object? title = null,
     Object? description = null,
     Object? image = null,
-    Object? isFavourite = null,
+    Object? isFavorite = null,
     Object? price = null,
   }) {
     return _then(_$ItemEntityImpl(
@@ -144,9 +144,9 @@ class __$$ItemEntityImplCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      isFavourite: null == isFavourite
-          ? _value.isFavourite
-          : isFavourite // ignore: cast_nullable_to_non_nullable
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
       price: null == price
           ? _value.price
@@ -164,7 +164,7 @@ class _$ItemEntityImpl implements _ItemEntity {
       required this.title,
       required this.description,
       required this.image,
-      required this.isFavourite,
+      required this.isFavorite,
       required this.price});
 
   @override
@@ -176,13 +176,13 @@ class _$ItemEntityImpl implements _ItemEntity {
   @override
   final String image;
   @override
-  final bool isFavourite;
+  final bool isFavorite;
   @override
   final double price;
 
   @override
   String toString() {
-    return 'ItemEntity(id: $id, title: $title, description: $description, image: $image, isFavourite: $isFavourite, price: $price)';
+    return 'ItemEntity(id: $id, title: $title, description: $description, image: $image, isFavorite: $isFavorite, price: $price)';
   }
 
   @override
@@ -195,14 +195,14 @@ class _$ItemEntityImpl implements _ItemEntity {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.image, image) || other.image == image) &&
-            (identical(other.isFavourite, isFavourite) ||
-                other.isFavourite == isFavourite) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite) &&
             (identical(other.price, price) || other.price == price));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, title, description, image, isFavourite, price);
+      runtimeType, id, title, description, image, isFavorite, price);
 
   @JsonKey(ignore: true)
   @override
@@ -217,7 +217,7 @@ abstract class _ItemEntity implements ItemEntity {
       required final String title,
       required final String description,
       required final String image,
-      required final bool isFavourite,
+      required final bool isFavorite,
       required final double price}) = _$ItemEntityImpl;
 
   @override
@@ -229,7 +229,7 @@ abstract class _ItemEntity implements ItemEntity {
   @override
   String get image;
   @override
-  bool get isFavourite;
+  bool get isFavorite;
   @override
   double get price;
   @override
