@@ -16,72 +16,33 @@ class _DetailsScreenState extends ConsumerState<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     final item = ref.watch(selectedItemProvider);
-    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const DetailsPageAppBarWidget(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: size.height,
-              child: Stack(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(top: size.height * 0.3),
-                    padding: EdgeInsets.only(
-                      top: size.height * 0.12,
-                      left: 5,
-                      right: 5,
-                    ),
-                    // height: 500,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(24),
-                        topRight: Radius.circular(24),
-                      ),
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5),
-                          child: Text(
-                            item.description,
-                            style: const TextStyle(height: 1.5),
-                          ),
-                        ),
-                        const SizedBox(height: 5 / 2),
-                        Consumer(
-                          builder: (context, ref, child) => IconButton(
-                              onPressed: () {
-                                ref.watch(selectedItemProvider.notifier).state =
-                                    item.copyWith(
-                                  isFavourite: !item.isFavourite,
-                                );
-                                ref
-                                    .watch(itemListControllerProvider.notifier)
-                                    .updateItem(
-                                      item.copyWith(
-                                        isFavourite: !item.isFavourite,
-                                      ),
-                                    );
-                              },
-                              icon: Icon(
-                                Icons.star,
-                                color: item.isFavourite
-                                    ? Colors.yellow
-                                    : Colors.grey,
-                              ),),
-                        ),
-                      ],
+      body: Column(
+        children: [
+          ProductTitleWithImage(item: item),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(24)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: SingleChildScrollView(
+                    child: Text(
+                      item.description,
+                      style: const TextStyle(height: 1.5),
                     ),
                   ),
-                  ProductTitleWithImage(item: item),
-                ],
+                ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -95,47 +56,66 @@ class ProductTitleWithImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            item.title,
-            style: Theme.of(context)
-                .textTheme
-                .titleLarge!
-                .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 5),
-          Row(
-            children: <Widget>[
-              RichText(
-                text: TextSpan(
-                  children: [
-                    const TextSpan(text: "Price\n"),
-                    TextSpan(
-                      text: "\$${item.price}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(
-                              color: Colors.white, fontWeight: FontWeight.bold,),
-                    ),
-                  ],
+      child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Hero(
+                tag: "${item.id}",
+                child: Image.asset(
+                  item.image,
+                  fit: BoxFit.fill,
                 ),
               ),
-              const SizedBox(width: 5),
-              Expanded(
-                child: Hero(
-                  tag: "${item.id}",
-                  child: Image.asset(
-                    item.image,
-                    fit: BoxFit.fill,
+            ),
+            Text(
+              item.title,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(color: Colors.black, fontWeight: FontWeight.bold,fontSize: 26),
+            ),
+            const SizedBox(height: 5),
+            Row(
+              children: [
+                Text(
+                  "\$${item.price}",
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                ),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Consumer(
+                      builder: (context, ref, child) => IconButton(
+                        onPressed: () {
+                          ref.watch(selectedItemProvider.notifier).state =
+                              item.copyWith(
+                            isFavourite: !item.isFavourite,
+                          );
+                          ref.watch(itemListControllerProvider.notifier).updateItem(
+                                item.copyWith(
+                                  isFavourite: !item.isFavourite,
+                                ),
+                              );
+                        },
+                        icon: Icon(
+                          size: 40,
+                          Icons.star,
+                          color: item.isFavourite ? Colors.yellow : Colors.grey,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
