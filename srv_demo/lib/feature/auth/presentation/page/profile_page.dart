@@ -16,12 +16,19 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
   Widget build(BuildContext context) {
     ref.watch(userControllerProvider.notifier).getProfile();
 
-    return  ref.watch(userControllerProvider).when(
-            init: () => Container(),
-            success: (account) => Column(
+    return ref.watch(userControllerProvider).when(
+          init: () => Container(),
+          success: (account) => Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(account.email),
-                Text(account.password),
+                Text(
+                  account.email,
+                  style: const TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
                 FloatingActionButton(
                   onPressed: () {
                     ref.read(userControllerProvider.notifier).logout();
@@ -31,8 +38,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                 ),
               ],
             ),
-            fail: (errorMessage) => Text(errorMessage!),
-          
-    );
+          ),
+          fail: (errorMessage) => Text(errorMessage!),
+        );
   }
 }

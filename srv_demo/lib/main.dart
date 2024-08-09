@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: mainAppBarColor,
           ),
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-              selectedItemColor: selectedBottomNavigationBarItemColor),
+              selectedItemColor: selectedBottomNavigationBarItemColor,),
           fontFamily: 'Inter',
         ),
         routerDelegate: _router.routerDelegate,
@@ -72,7 +72,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: detailsRoute,
       builder: (context, state) => const DetailsPage(),
-    )
+    ),
   ],
 );
 

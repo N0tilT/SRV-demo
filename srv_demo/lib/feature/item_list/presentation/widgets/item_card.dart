@@ -13,7 +13,6 @@ class ItemCard extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Expanded(
             child: Container(
@@ -46,7 +45,7 @@ class ItemCard extends StatelessWidget {
                 width: 10,
               ),
               Text(
-                "\$${item.price}",
+                "${item.price} ₽",
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(
